@@ -90,19 +90,20 @@ public class AnimalServiceImp implements AnimalService {
                 vaccinesDao.stream().map(vaccineDao -> vaccineDao.getName()).toArray(size -> new String[size]);
 
         return new Animal(
-                dao.getName(),
-                dao.getBreed(),
-                dao.getGender(),
-                dao.isVaccinated(),
-                vaccines
+            dao.getName(),
+            dao.getBreed(),
+            dao.getGender(),
+            dao.isVaccinated(),
+            vaccines,
+            dao.getId()
         );
     }
 
     private AnimalDao map(Animal animal) {
         return new AnimalDao(
-                animal.getName(),
-                animal.getBreed(),
-                animal.getGender(),
-                animal.isVaccinated());
+            animal.getName(),
+            animal.getBreed(),
+            animal.getGender(),
+            animal.isVaccinated());
     }
 }
